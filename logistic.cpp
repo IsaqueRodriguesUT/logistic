@@ -1,3 +1,5 @@
+//Isaque gabriel hellvig rodrigues R.A: a2753103
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
@@ -27,7 +29,7 @@ void shuffle_dataset(Dataset* d) {
     }
 }
 
-// ================= NORMALIZAÇÃO ==================== //
+// ================= NORMALIZAÃ‡ÃƒO ==================== //
 void normalize_dataset(Dataset* d) {
     for (int j = 0; j < d->cols; j++) {
         double mean = 0, std = 0;
@@ -47,7 +49,7 @@ void normalize_dataset(Dataset* d) {
     }
 }
 
-// ===================== PREVISÃO ===================== //
+// ===================== PREVISÃƒO ===================== //
 int predict(LogisticRegression* model, double* x) {
     double z = model->weights[0];
 
@@ -80,7 +82,7 @@ void train(LogisticRegression* model, Dataset* data, double lr, int epochs) {
         }
 
         if (epoch % 50 == 0)
-            printf("Epoch %d concluído.\n", epoch);
+            printf("Epoch %d concluÃ­do.\n", epoch);
     }
 }
 
@@ -154,7 +156,7 @@ Dataset load_csv(const char* filename) {
     return d;
 }
 
-// ===================== MÉTRICAS COM RETORNO ===================== //
+// ===================== MÃ‰TRICAS COM RETORNO ===================== //
 void compute_metrics(
     Dataset* data, LogisticRegression* model,
     double* err, double* acc, double* pre, double* rec, double* f1
@@ -177,3 +179,4 @@ void compute_metrics(
     *f1 = (*pre + *rec) ? (2 * (*pre) * (*rec)) / (*pre + *rec) : 0;
     *err = 1 - *acc;
 }
+
